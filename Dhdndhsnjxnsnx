@@ -1,0 +1,561 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="Keywords" content="io games,casual,mmo,browser game,2D,platformer,deathmatch,free for all,damage ball">
+    <meta name="Description" content="GoBattle.io is a casual browser based MMO 2D platformer. Play online with your friends">
+    <meta property="og:url" content="https://gobattle.io">
+    <meta property="og:title" content="GoBattle.io - Battle to be the King! Play free the best 2D massively multiplayer online game">
+    <meta property="og:description" content="GoBattle.io is a casual browser based MMO 2D platformer. Play online with your friends.">
+    <meta property="og:site_name" content="GoBattle.io">
+    <meta property="og:image" content="https://gobattle.io/images/preview.png">
+    <title>GoBattle.io ⚔️ Battle to be the King! 👑 Play for free the best 2D MMO game</title>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@gobattle_io">
+    <meta name="twitter:creator" content="@nitrillo">
+    <meta name="twitter:title" content="GoBattle.io - Battle to be the King! Play free the best 2D massively multiplayer online game">
+    <meta name="twitter:description" content="GoBattle.io is a casual browser based MMO 2D platformer. Play online with your friends.">
+    <meta name="twitter:image" content="https://gobattle.io/images/preview.png">
+    <meta name="google-site-verification" content="6FH5eRHL7AiWM5eQTPRCZbrTFPRr0cGXjH-cKyaBvec">
+    <link rel="icon" type="image/png" href="/style104/favicon.png">
+    <link rel="icon" type="image/gif" href="/style104/luiser.gif">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="preload" href="compass.ttf" as="font" crossorigin="anonymous">
+    <script src="https://cdn.iubenda.com/iubenda.js"></script><script src="https://cdn.iubenda.com/iubenda.js"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://accounts.google.com/gsi/client" async="" defer=""></script>
+    <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js" aync="" defer=""></script>
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+            <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+            <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+            <script src="//no2.es/js/jquery.cookie.js"></script>
+            <script src="//no2.es/js/jquery.cookiecuttr.js"></script>
+            <link rel="stylesheet" href="//no2.es/css/cookiecuttr.css">
+            <script>
+            function showCookies() {
+                $.cookieCuttr({
+                    cookieAnalyticsMessage: 'This website uses cookies. If you continue to browse the site, we assume you are fine with how we use cookies on the web',
+                    cookieWhatAreTheyLink: "tos.html#cookie",
+                });
+            };
+            </script> 
+                <style>
+        html {
+            background-color: black;
+        }
+        body {
+            background-color: black;
+            color: #ccc;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            background: linear-gradient(180deg, #000000, #3e0a0a);
+            background-size: 100% 200%;
+            height: calc(100vh - 30px);
+
+            animation: backgroundappear 2s ease;
+            background-position: 0% 50%;
+        }
+
+        @keyframes backgroundappear {
+            0%{ background-position: 0% 0%;}
+            100%{ background-position: 0% 50%;}
+        }
+
+        @font-face {
+            font-family: 'customfont1';
+            font-style: normal;
+            src: url('compass.ttf') format('truetype');
+            font-display: swap;
+        }
+
+        #logo {
+            width: 50vh;
+            max-width: 80%;
+            image-rendering: pixelated;
+            margin-top: 10vh;
+            animation: appear 2s ease;
+        }
+
+        @keyframes appear {
+            0% { opacity: 0%;}
+            100% { opacity: 100%;}
+        }
+
+        #progress {
+            margin-top: 15px;
+            height: 20px;
+            width: 300px;
+            border: 2px solid white;
+            border-radius: 7px; 
+        }
+
+        progress {
+            border-radius: 7px; 
+            box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
+        }
+        progress::-webkit-progress-bar {
+            background-color: black;
+            border-radius: 7px;
+        }
+        progress::-webkit-progress-value {
+            background-color: red;
+            border-radius: 7px;
+            box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
+        }
+        progress::-moz-progress-bar {
+            /* style rules */
+        }
+
+        #indexBanner {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: max(calc(50% - 970px/2), 0px);
+        }
+
+        #ingameBanner {
+            display: none;
+            position: absolute;
+            top: max(calc(50% -  280px/2), 0px);
+            left: max(calc(50% - 336px/2), 0px);
+            width:  336px;
+            height: 280px;
+        }
+
+        
+        #footer {
+            height: 30px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: #741907;
+            font-family: 'customfont1';
+            font-size: 12px;
+        }
+
+        #footer a:visited{
+            color: #ffff00;
+        }
+
+        #footer a:link{
+            color: #ffff00;
+        }
+
+        .made-with{
+            height: 30px;
+            vertical-align: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            font-size: 19px;
+        }
+
+        .made-with img{
+            margin-top: 5px;
+            margin-bottom: -5px;
+        }
+
+        #fbbox {
+            line-height: 19px;
+            margin-left: 10px;
+        }
+
+        .twitter-share-button {
+            position: relative !important;
+            bottom: -5px;
+        }
+
+        .subtitle {
+            font: 30px 'customfont1'; 
+            color: #fff; 
+            text-shadow: 2px 2px #000000;
+        }
+
+        #progress-holder {
+            text-align: center;
+            position: fixed;
+            left: calc(50% - 150px);
+            bottom: 10vh;
+            width: auto;
+            height: 100px;
+        }
+
+    </style>
+<style id="googleidentityservice_button_styles">.qJTHM{-webkit-user-select:none;color:#202124;direction:ltr;-webkit-touch-callout:none;font-family:"Roboto-Regular",arial,sans-serif;-webkit-font-smoothing:antialiased;font-weight:400;margin:0;overflow:hidden;-webkit-text-size-adjust:100%}.ynRLnc{left:-9999px;position:absolute;top:-9999px}.L6cTce{display:none}.bltWBb{word-break:break-all}.hSRGPd{color:#1a73e8;cursor:pointer;font-weight:500;text-decoration:none}.Bz112c-W3lGp{height:16px;width:16px}.Bz112c-E3DyYd{height:20px;width:20px}.Bz112c-r9oPif{height:24px;width:24px}.Bz112c-uaxL4e{-webkit-border-radius:10px;border-radius:10px}.LgbsSe-Bz112c{display:block}.S9gUrf-YoZ4jf,.S9gUrf-YoZ4jf *{border:none;margin:0;padding:0}.fFW7wc-ibnC6b>.aZ2wEe>div{border-color:#4285f4}.P1ekSe-ZMv3u>div:nth-child(1){background-color:#1a73e8!important}.P1ekSe-ZMv3u>div:nth-child(2),.P1ekSe-ZMv3u>div:nth-child(3){background-image:linear-gradient(to right,rgba(255,255,255,.7),rgba(255,255,255,.7)),linear-gradient(to right,#1a73e8,#1a73e8)!important}.haAclf{display:inline-block}.nsm7Bb-HzV7m-LgbsSe{-webkit-border-radius:4px;border-radius:4px;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-transition:background-color .218s,border-color .218s;transition:background-color .218s,border-color .218s;-webkit-user-select:none;-webkit-appearance:none;background-color:#fff;background-image:none;border:1px solid #dadce0;color:#3c4043;cursor:pointer;font-family:"Google Sans",arial,sans-serif;font-size:14px;height:40px;letter-spacing:0.25px;outline:none;overflow:hidden;padding:0 12px;position:relative;text-align:center;vertical-align:middle;white-space:nowrap;width:auto}@media screen and (-ms-high-contrast:active){.nsm7Bb-HzV7m-LgbsSe{border:2px solid windowText;color:windowText}}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe{font-size:14px;height:32px;letter-spacing:0.25px;padding:0 10px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe{font-size:11px;height:20px;letter-spacing:0.3px;padding:0 8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe{padding:0;width:40px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe{width:32px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe{width:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK{-webkit-border-radius:20px;border-radius:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.pSzOP-SxQuSe{-webkit-border-radius:16px;border-radius:16px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.purZT-SxQuSe{-webkit-border-radius:10px;border-radius:10px}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc{border:none;color:#fff}.nsm7Bb-HzV7m-LgbsSe.MFS4be-v3pZbf-Ia7Qfc{background-color:#1a73e8}.nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc{background-color:#202124;color:#e8eaed}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:18px;margin-right:8px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:14px;min-width:14px;width:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:10px;min-width:10px;width:10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin-left:8px;margin-right:-4px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:10px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:4px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-top-left-radius:3px;border-top-left-radius:3px;-webkit-border-bottom-left-radius:3px;border-bottom-left-radius:3px;display:-webkit-box;display:-webkit-flex;display:flex;justify-content:center;-webkit-align-items:center;align-items:center;background-color:#fff;height:36px;margin-left:-10px;margin-right:12px;min-width:36px;width:36px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c,.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:28px;margin-left:-8px;margin-right:10px;min-width:28px;width:28px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:16px;margin-left:-6px;margin-right:8px;min-width:16px;width:16px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-radius:3px;border-radius:3px;margin-left:2px;margin-right:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-radius:18px;border-radius:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-radius:14px;border-radius:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-radius:8px;border-radius:8px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-flex-direction:row;flex-direction:row;justify-content:space-between;-webkit-flex-wrap:nowrap;flex-wrap:nowrap;height:100%;position:relative;width:100%}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX{justify-content:center}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{-webkit-flex-grow:1;flex-grow:1;font-family:"Google Sans",arial,sans-serif;font-weight:500;overflow:hidden;text-overflow:ellipsis;vertical-align:top}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-weight:300}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX .nsm7Bb-HzV7m-LgbsSe-BPrWId{-webkit-flex-grow:0;flex-grow:0}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe{-webkit-transition:background-color .218s;transition:background-color .218s;bottom:0;left:0;position:absolute;right:0;top:0}.nsm7Bb-HzV7m-LgbsSe:hover,.nsm7Bb-HzV7m-LgbsSe:focus{-webkit-box-shadow:none;box-shadow:none;border-color:#d2e3fc;outline:none}.nsm7Bb-HzV7m-LgbsSe:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.04)}.nsm7Bb-HzV7m-LgbsSe:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.1)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.24)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.32)}.nsm7Bb-HzV7m-LgbsSe .n1UuX-DkfjY{-webkit-border-radius:50%;border-radius:50%;display:-webkit-box;display:-webkit-flex;display:flex;height:20px;margin-left:-4px;margin-right:8px;min-width:20px;width:20px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-family:"Roboto";font-size:12px;text-align:left}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .ssJRIf,.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .fmcmS{overflow:hidden;text-overflow:ellipsis}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;color:#5f6368;fill:#5f6368;font-size:11px;font-weight:400}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{color:#e8eaed;fill:#e8eaed}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .Bz112c{height:18px;margin:-3px -3px -3px 2px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-top-left-radius:0;border-top-left-radius:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0;-webkit-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-border-bottom-right-radius:3px;border-bottom-right-radius:3px;margin-left:12px;margin-right:-10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-radius:18px;border-radius:18px}.L5Fo6c-sM5MNb{border:0;display:block;left:0;position:relative;top:0}.L5Fo6c-bF1uUb{-webkit-border-radius:4px;border-radius:4px;bottom:0;cursor:pointer;left:0;position:absolute;right:0;top:0}.L5Fo6c-bF1uUb:focus{border:none;outline:none}sentinel{}</style><style type="text/css"></style><style type="text/css"></style><style>        @font-face {            font-family: "customfont1";            font-style: normal;            font-weight: 300;            font-display: swap;            src: url('blob:https://gobattle.io/e42c154e-d5e6-46f0-aec3-237bc8048200') format('truetype');        }        </style></head>
+<body style="background-color: black;"><div class="cc-cookies ">This website uses cookies. If you continue to browse the site, we assume you are fine with how we use cookies on the web <a href="#accept" class="cc-cookie-accept">ACCEPT COOKIES</a> <a href="tos.html#cookie" title="Visit All about cookies (External link)">What are cookies?</a></div>
+            <div id="canvas-holder" style="width: 100%; height: calc(100%-50px); position: relative; padding: 0;">
+            <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" width="760" height="705" style="display: block;"></canvas>
+        <input type="hidden" value="" id="shinobit-textfield" style="margin: 0; padding: 0; position: absolute; display: none; outline: none;">
+        <input type="hidden" value="" id="shinobit-password" style="margin: 0; padding: 0; position: absolute; display: none; outline: none;">
+    </div>
+    
+    <div id="indexBanner" style="display: block;">
+            </div> 
+    <div id="ingameBanner">
+            </div>
+    <script language="javascript">
+    
+        var footerHidden = false;
+    
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'googan');
+
+    googan('create', 'UA-3899117-27', 'auto');
+    googan('send', 'pageview');
+
+    function showIndexBanner() {
+        var indexBanner = document.getElementById("indexBanner");
+        indexBanner.style.display = "block";
+    }
+
+    function hideIndexBanner() {
+        var indexBanner = document.getElementById("indexBanner");
+        indexBanner.style.display = "none";
+    }
+
+    function showInGameBanner() {
+        var ingameBanner = document.getElementById("ingameBanner");
+        ingameBanner.style.display = "block";
+    }
+
+    function hideInGameBanner() {
+        var ingameBanner = document.getElementById("ingameBanner");
+        ingameBanner.style.display = "none";
+    }
+
+    function detectTouchscreen() {
+        var result = false;
+        if (window.PointerEvent && ('maxTouchPoints' in navigator)) {
+            // if Pointer Events are supported, just check maxTouchPoints
+            if (navigator.maxTouchPoints > 0) {
+            result = true;
+            }
+        } else {
+            // no Pointer Events...
+            if (window.matchMedia && window.matchMedia("(any-pointer:coarse)").matches) {
+            // check for any-pointer:coarse which mostly means touchscreen
+            result = true;
+            } else if (window.TouchEvent || ('ontouchstart' in window)) {
+            // last resort - check for exposed touch events API / event handler
+            result = true;
+            }
+        }
+        return result;
+    }
+
+
+    var statusElement = document.getElementById('status');
+    var currentLength;
+
+    var err = function(log) {
+        console.log(log);
+    }
+
+    function playGame() {
+        if (Module['applicationIsLoaded']) {
+            Module.setStatus("Starting ...");
+            setTimeout(function() {
+                Module.callMain();
+            }, 100);
+
+            currentLength = history.length;
+            
+            try {
+                history.pushState({}, "GoBattle.io", "#");
+                setTimeout(function () {
+                    location.href += "!";
+                }, 50);
+            } catch (e) {
+                console.log(e);
+            }
+
+            onhashchange = function(event) {
+                if (location.hash !== "#!") {
+                    Module.sendCommand(-3, 0);
+                    location.hash = "#!";
+                }
+            }
+        } else {
+            Module['loadOnReady'] = true
+        }
+    }
+
+    function isMobile() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        if (/windows phone/i.test(userAgent)) {
+            return "true";
+        }
+        if (/android/i.test(userAgent)) {
+            return "true";
+        }
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return "true";
+        }
+        if (detectTouchscreen() && /Mac/.test(userAgent)) {
+            return "true";
+        }
+        return "false";
+    }
+
+    function isAndroid() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        if (/android/i.test(userAgent)) {
+            return true;
+        }
+        return false;
+    }
+    
+    var canvasResizeCallback = function(event) {
+        if (isAndroid() && (document.getElementById('shinobit-textfield') == document.activeElement ||
+            document.getElementById('shinobit-password') == document.activeElement)) {
+            event.stopImmediatePropagation();
+            return;
+        }
+        var w = window.innerWidth;
+        var h;
+        if (footerHidden) {
+            h = window.innerHeight;
+        } else {
+            h = window.innerHeight - 30;
+        }
+        Module.setCanvasSize(w,h);
+    }
+
+    var googleAuthCode = "";
+    var appleIdToken = "";
+    
+    var Module = {
+        preRun: [function() {
+            canvasResizeCallback();
+            window.addEventListener("resize", canvasResizeCallback, false);
+            var target = document.getElementById('canvas');
+        }],
+        postRun: [function() {
+            setTimeout(function(){ 
+                document.getElementById('canvas').style.display = 'block';
+                var elem  = document.getElementById('loading-holder');
+                elem.parentNode.removeChild(elem);
+                document.getElementsByTagName("body")[0].style.background = 'black';
+                showCookies();
+                window.focus();
+            }, 1000);
+        }],
+        print: (function() {
+            return function(text) {
+                text = Array.prototype.slice.call(arguments).join(' ');
+                console.log(text);
+            };
+        })(),
+        printErr: (function() {
+            return function(text) {
+                text = Array.prototype.slice.call(arguments).join(' ');
+                console.log(text);
+            };
+        })(),
+        canvas: (function() {
+
+            HTMLCanvasElement.prototype.__oldGetContext = HTMLCanvasElement.prototype.getContext;
+
+            HTMLCanvasElement.prototype.getContext = function(type, options) {
+                if (options) {
+                    options['powerPreference'] = "high-performance";
+                }
+                return this.__oldGetContext(type, options);   // call original vector
+            }
+            var c = document.getElementById('canvas');
+            return c;
+        })(),
+        setStatus: function(text) {
+            try {
+                var pr = text.split("(");
+                if (pr.length > 1) {
+                    var d = pr[1].substring(0, pr[1].length-1);
+                    d = d.split("/");
+                    var denominator =  parseInt(d[1]);
+                    var value = 0;
+                    if (denominator > 0) {
+                        value = parseInt(d[0]) * 100 / denominator;
+                    }
+                    document.getElementById('progress').value = value;
+                    statusElement.innerHTML = pr[0] + "" + Math.round(value) + "%";
+                } else {
+                    statusElement.innerHTML = text;
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        totalDependencies: 0,
+        monitorRunDependencies: function(left) {
+            this.totalDependencies = Math.max(this.totalDependencies, left);
+            Module.setStatus('Downloading (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')');
+        },
+        productName : "",
+        customMethod: function(name, param) {
+            if (name == "isHTTPS") {
+                return location.protocol == 'https:' ? "true" : "false";    
+            } else if (name == "isSafari") {
+                if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            } else if (name == "isMobile") {
+                return isMobile();
+            } else if (name == "reloadClient") {
+                location.reload();
+                return "";
+            } else if (name == "hideFooter") {
+                footerHidden = true;
+                document.getElementById('footer').style.display = 'none';
+                document.getElementById('canvas-holder').style.height = 'calc(100%)';
+                canvasResizeCallback();
+                return "";
+            } else  if (name == "getQueryParams") {
+                return window.location.search.substr(1);
+            } else if (name == "getTrackingId") {
+                var t = new URLSearchParams(window.location.search).get("tracking_id"); 
+                return (t == null ? '' :  t);
+            } else if (name == "set-web-product") {
+                Module.productName = param;
+            } else if (name == "web-buy-product") {
+                googan('send', 'pageview', '/buy/' + Module.productName + "/start");
+                var options = {
+                 access_token: param,
+                 sandbox: false                };
+                if (isMobile() == "true") {
+                    options['childWindow'] = {
+                        target: "_self"
+                    };
+                }
+                XPayStationWidget.init(options);
+                XPayStationWidget.open();
+                XPayStationWidget.on("close", function() {
+                    Module.sendCommand(888, 0);
+                })
+                XPayStationWidget.on("status-done", function() {
+                    googan('send', 'pageview', '/buy/' + Module.productName + "/completed");
+                })
+            } else if (name == "show-banner") {
+                if (param == "portada") {
+                    showIndexBanner();
+                } else {
+                    googan('send', 'pageview', '/inGameBanner');
+                    showInGameBanner();
+                }
+            } else if (name == "hide-banner") {
+                if (param == "portada") {
+                    hideIndexBanner();
+                } else {
+                    hideInGameBanner();
+                }
+            } else if (name == "loginGoogle") {
+                googleApiClient.requestCode();
+            } else if (name == "loginApple") {
+                AppleID.auth.signIn().then((data) => {
+                    console.log(data);
+                    appleIdToken = data.authorization.id_token;
+                    Module.sendCommand(16381, 0);
+                });
+            } else if (name == "loginGoogleResult") {
+                return googleAuthCode;
+            } else if (name == "loginAppleResult") {
+                return appleIdToken;
+            } else if (name == "page-view") {
+                googan('send', 'pageview', '/' + param);
+                window.focus();
+            } else if (name == "exit") {
+                try {
+                    history.go(-2);                
+                } catch (e) {
+                    console.log(e);
+                }
+            } else if (name == "shareurl") {
+                var twitterWindow = window.open('https://twitter.com/share?url=' + param, 'twitter-popup', 'height=350,width=600');
+                if(twitterWindow.focus) { twitterWindow.focus(); }
+            } else if (name == "overrideBase") {
+                return 'https://gobattle.io';
+            } else if (name == "bindingVersion") {
+                return '20220314';
+            }
+            return '';
+        },
+        noInitialRun: true,
+        locateFile: function(file) {
+            return "587eb1a60aee900f941ab8a495e56230464eac4d_web/" + file;
+        },
+        onRuntimeInitialized: function() {
+            console.log("Game ready to run");
+            Module['applicationIsLoaded'] = true
+            if (Module['loadOnReady']) {
+                // Preloaded audios cannot be played with panning
+                // removing the preloaded audios, all the sounds are played with webaudio
+                Module.preloadedAudios = {};
+                playGame();
+            }
+        },
+        applicationIsLoaded: false,
+        loadOnReady: false,
+        SDL_canPlayWithWebAudio: function(file) {
+            return true;
+        },
+    };
+
+    window.onerror = function(event) {
+        // TODO: do not warn on ok events like simulating an infinite loop or exitStatus
+        // Commented this line becaues is what showing an error on portal games pages (like iogames.space)
+        // Module.setStatus('Exception thrown, see JavaScript console');
+        // Module.setStatus = function(text) {
+        //     if (text) Module.printErr('[post-exception status] ' + text);
+        // };
+    };
+
+    playGame();
+
+    </script>
+    <script async="" type="text/javascript" src="587eb1a60aee900f941ab8a495e56230464eac4d_web/data.js"></script>
+    <script async="" type="text/javascript" src="587eb1a60aee900f941ab8a495e56230464eac4d_web/base.js"></script>
+        <div id="footer">
+        <div class="made-with">Made with <img src="/images/heart.png" width="20" height="20"> by <a href="https://no2.es">NO2</a> • © <a href="https://no2.es">NO2</a> 2022 • 
+            <a href="https://www.iubenda.com/privacy-policy/53189318" class="iubenda-nostyle no-brand iubenda-embed " title="Privacy Policy">Privacy Policy</a><script type="text/javascript" src="https://cdn.iubenda.com/iubenda_i_badge.js"></script> <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+		•
+            <a href="https://www.iubenda.com/privacy-policy/53189318/cookie-policy" class="iubenda-nostyle no-brand iubenda-embed " title="Cookie Policy">Cookie Policy</a><script type="text/javascript" src="https://cdn.iubenda.com/iubenda_i_badge.js"></script> <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+        • <a href="/tos.html">Terms of Service</a>
+        </div>
+
+    </div>
+    
+    <script src="//static.xsolla.com/embed/paystation/1.0.7/widget.min.js" async=""></script>
+    
+    <script>
+        window.onload = function () {
+            googleApiClient = google.accounts.oauth2.initCodeClient({
+                client_id: '876373753607-mq53noj4qbcs4be3agk546l3semkqma6.apps.googleusercontent.com',
+                scope: 'https://www.googleapis.com/auth/userinfo.email',
+                ux_mode: 'popup',
+                callback: (response) => {
+                    googleAuthCode = response.code;
+                    Module.sendCommand(16380, 0);
+                }
+            });
+
+            AppleID.auth.init({
+                clientId : 'io.gobattle',
+                scope : 'email',
+                redirectURI : 'https://gobattle.io',
+                usePopup : true
+            });
+        };
+    </script>
+
+
+
+</body>
